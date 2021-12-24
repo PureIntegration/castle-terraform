@@ -10,8 +10,8 @@ terraform {
 provider "proxmox" {
   # url is the hostname (FQDN if you have one) for the proxmox host you'd like to connect to to issue the commands. my proxmox host is 'prox-1u'. Add /api2/json at the end for the API
   pm_api_url = "https://pve:8006/api2/json"
-  pm_api_token_id = "ggriffin@pam!root-api-access"
-  pm_api_token_secret = "69099618-aa24-44a1-8d39-f8524492bc39"
+  pm_api_token_id = var.pm_api_token_id
+  pm_api_token_secret = var.pm_api_token_secret
   pm_tls_insecure = true
 }
 resource "proxmox_vm_qemu" "k3s_server" {
