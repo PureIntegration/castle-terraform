@@ -15,7 +15,7 @@ provider "proxmox" {
   pm_tls_insecure = true
 }
 resource "proxmox_vm_qemu" "k3s_server" {
-  count = 1 # just want 1 for now, set to 0 and apply to destroy VM
+  count = 3 # just want 1 for now, set to 0 and apply to destroy VM
   name = "k3s-${count.index + 1}" #count.index starts at 0, so + 1 means this VM will be named test-vm-1 in proxmox
   target_node = var.proxmox_host
   clone = var.template_name
